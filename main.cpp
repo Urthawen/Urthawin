@@ -12,7 +12,13 @@ int main(){
     std::cout<<"Cell_lifecell : "<<newMap.nb_cells(Cellule::LIFECELL)<<std::endl;
   
     std::cout<<"Cell_deadcell : "<<newMap.nb_cells(Cellule::DEADCELL)<<std::endl;
+    
+    std::cout<<"Cell_player : "<<newMap.nb_cells(Cellule::PLAYER)<<std::endl;
+    
+    std::cout<<"Cell_monster : "<<newMap.nb_cells(Cellule::MONSTER)<<std::endl;
 
     newMap.printMap();
+
+    newMap.addEntity();
     
 }

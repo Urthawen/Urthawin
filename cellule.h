@@ -12,6 +12,8 @@ public :
     UNWALKABLE,
     LIFECELL,
     DEADCELL,
+    PLAYER,
+    MONSTER,
     NB_STATMENTS
   };
 

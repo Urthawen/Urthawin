@@ -91,3 +91,19 @@ void Map::printMap(){
   std::cout<<std::endl<<std::endl;
   return;
 }
+
+void Map::addEntity(){
+  int x=0;
+  bool cellFound = false;
+  while(cellFound==false && x<MAP_LENGHT)
+    {
+      if(celluleIsState(Desk[x][1], Cellule::WALKABLE))
+	{
+	  std::cout<<"Cell walkable found at ["<<x<<",1]"<<std::endl;
+	  cellFound=true;
+	}
+      x++;
+    }
+
+  return;
+}
