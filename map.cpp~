@@ -1,0 +1,48 @@
+#include "map.h"
+
+
+Map::Map(){
+  srand(time(NULL));
+  for(size_t x=0; x<MAP_LENGHT;x++)
+    {
+      for(size_t y=0; y<MAP_LENGHT;y++)
+	{
+	  Desk[x][y].setX(x);
+	  Desk[x][y].setY(y);
+	  int nbgen=rand()%4+0;    //entre 1-9
+	  switch(nbgen){
+	  case 0:
+	    Desk[x][y].setState(Cellule::WALKABLE);    
+	    break;
+	  case 1:
+	  Desk[x][y].setState(Cellule::UNWALKABLE);
+	    break;
+	  case 2:
+	  Desk[x][y].setState(Cellule::LIFECELL);
+	    break;
+	  case 3:
+	  Desk[x][y].setState(Cellule::DEADCELL);
+	    break;
+	  default:
+	    std::cerr<<"Error"<<std::endl;
+	  }
+	}
+    }
+
+  std::cout<<__FUNCTION__<<" ("<<__LINE__<<") "<<"LENGHT ("<<MAP_LENGHT<<","<<MAP_LENGHT<<") created"<<std::endl;
+}
+
+size_t Map::nb_cells(Cellule::Statment etat) const{
+  size_t cpt=0;
+  for(size_t x=0; x<MAP_LENGHT;x++)
+    {
+      for(size_t y=0; y<MAP_LENGHT;y++)
+	{
+	  if(celluleIsState(Desk[x][y], etat))
+	    {
+	      cpt++;
+	    }
+	}
+    }
+  return cpt;
+}
