@@ -58,7 +58,7 @@ size_t Map::nb_cells(Cellule::Statment etat) const{
 
 void Map::printMap(){
   //TOP_MAP
-  for(size_t x=0;x<MAP_LENGHT*2+4;x++)
+  for(size_t x=0;x<MAP_LENGHT*2+5;x++)
     {
       std::cout<<"\033[2;37m__\033[0m";
     }
@@ -71,11 +71,20 @@ void Map::printMap(){
 	{
 	  std::cout<<readCell(Desk[x][y]);
 	  if(y==MAP_LENGHT-1)
-	    std::cout<<"|"<<std::endl<<"|"<<std::endl;
+	    {
+	      std::cout<<"|"<<std::endl<<"| ";
+	      for(size_t i=0;i<MAP_LENGHT;i++)
+		{
+		  std::cout<<"     ";
+		  if(i==MAP_LENGHT-1)
+		    std::cout<<"|";
+		}
+	      std::cout<<std::endl;
+	    }
 	}
     }
   //BOT OF THE MAP
-  for(size_t x=0;x<MAP_LENGHT*2+4;x++)
+  for(size_t x=0;x<MAP_LENGHT*2+5;x++)
     {
       std::cout<<"\033[2;37m__\033[0m";
     }
