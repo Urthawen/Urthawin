@@ -1,4 +1,4 @@
-PROG=prog
+PROG=launcher
 CC=g++
 FLAGS=-Wall
 SRCS=main.cpp cellule.cpp map.cpp
