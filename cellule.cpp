@@ -58,3 +58,8 @@ std::string readCell(const Cellule &cellule){
   return res;
   
 }
+
+void testCell(const Cellule &cellule){
+  std::cout<<cellule.getState()<<std::endl;
+  return;
+}

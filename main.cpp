@@ -18,7 +18,7 @@ int main(){
     std::cout<<"Cell_monster : "<<newMap.nb_cells(Cellule::MONSTER)<<std::endl;
 
     newMap.printMap();
-
     newMap.addEntity();
+    newMap.readMap();
     
 }

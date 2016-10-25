@@ -97,13 +97,27 @@ void Map::addEntity(){
   bool cellFound = false;
   while(cellFound==false && x<MAP_LENGHT)
     {
-      if(celluleIsState(Desk[x][1], Cellule::WALKABLE))
+      if(celluleIsState(Desk[1][x], Cellule::WALKABLE))
 	{
-	  std::cout<<"Cell walkable found at ["<<x<<",1]"<<std::endl;
+	  std::cout<<"Cell walkable found at [1,"<<x<<"]"<<std::endl;
 	  cellFound=true;
 	}
       x++;
     }
 
+  return;
+}
+
+void Map::readMap() const{
+  int x=0, y=0;
+
+  for(x=0;x<MAP_LENGHT;x++)
+    {
+      for(y=0;y<MAP_LENGHT;y++)
+	{
+	  std::cout<<"Cellule ["<<x<<","<<y<<"] = ";
+	  testCell(Desk[x][y]);
+	}
+    }
   return;
 }

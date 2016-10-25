@@ -41,8 +41,8 @@ public :
  
 };
 
-  std::string StatmentToString(Cellule::Statment s);
   bool celluleIsState(const Cellule &cellule, Cellule::Statment etat);
   std::string readCell(const Cellule &cellule);
+  void testCell(const Cellule &cellule);
 
   #endif
