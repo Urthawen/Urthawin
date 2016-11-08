@@ -54,6 +54,12 @@ std::string readCell(const Cellule &cellule){
   case Cellule::DEADCELL:
     res = "\033[2;43m  \033[0m   ";//"jaune";
     break;
+  case Cellule::MONSTER:
+    res = "\033[2;37mM \033[0m   ";
+    break;
+  case Cellule::PLAYER:
+    res = "\033[2;32mP \033[0m   ";
+    break;
   }
   return res;
   

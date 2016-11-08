@@ -12,7 +12,7 @@ Map::Map(){
 	{
 	  Desk[x][y].setX(x);
 	  Desk[x][y].setY(y);
-	  int nbgen=rand()%4+0;    //entre 1-9
+	  int nbgen=rand()%4+0;
 	  switch(nbgen){
 	  case 0:
 	    Desk[x][y].setState(Cellule::WALKABLE);    
@@ -94,13 +94,27 @@ void Map::printMap(){
 
 void Map::addEntity(){
   int x=0;
-  bool cellFound = false;
-  while(cellFound==false && x<MAP_LENGHT)
+  bool cellFoundMonster = false;
+  bool cellFoundPlayer = false;
+  while(cellFoundMonster==false && x<MAP_LENGHT)
     {
       if(celluleIsState(Desk[1][x], Cellule::WALKABLE))
 	{
-	  std::cout<<"Cell walkable found at [1,"<<x<<"]"<<std::endl;
-	  cellFound=true;
+	  std::cout<<"Cell Spawn monster found at [1,"<<x<<"]"<<std::endl;
+	  cellFoundMonster=true;
+	  Desk[1][x].setState(Cellule::MONSTER);
+	}
+      x++;
+    }
+  x=0;
+  while(cellFoundPlayer==false && x<MAP_LENGHT)
+    {
+      if(celluleIsState(Desk[MAP_LENGHT-2][x], Cellule::WALKABLE))
+	{
+	  std::cout<<"Cell Spawn player found at  ["<<MAP_LENGHT-2<<","<<x<<"]"<<std::endl;
+	  cellFoundPlayer=true;
+	  Desk[MAP_LENGHT-2][x].setState(Cellule::PLAYER);
+	  PlayerPos[MAP_LENGHT-2][x].setY(x);
 	}
       x++;
     }
@@ -119,5 +133,10 @@ void Map::readMap() const{
 	  testCell(Desk[x][y]);
 	}
     }
+  return;
+}
+
+void Map::movePlayer(Move position){
+  /*std::cout<<"PLAYER_POS["<<PlayerPos.getX()<<","<<PlayerPos.getY()<<"]"<<std::endl;*/
   return;
 }
